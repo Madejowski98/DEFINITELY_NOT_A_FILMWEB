@@ -1,6 +1,6 @@
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
-from django.db.models import CharField, Model, IntegerField, DecimalField, DateTimeField, ForeignKey
+from django.db.models import CharField, Model, IntegerField, DecimalField, DateTimeField, ForeignKey, TextField
 from django.utils import timezone
 from django.conf import settings
 User = settings.AUTH_USER_MODEL
@@ -12,13 +12,14 @@ User = settings.AUTH_USER_MODEL
     created_at which will be a DateTimeField,
     added_by a ForeignKey to User model.
 """
-class Review(Model):
+class Review(models.Model):
     user_id = models.IntegerField()
     movie_id = models.IntegerField()
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
     review = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     added_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.review
@@ -78,6 +79,15 @@ class Movie(models.Model):
     added_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+class Article(models.Model):
+    title = CharField(max_length=255)
+    added_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    description = TextField(blank=False)
 
     def __str__(self):
         return self.title
