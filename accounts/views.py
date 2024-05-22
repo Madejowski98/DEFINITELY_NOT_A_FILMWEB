@@ -1,12 +1,13 @@
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 
 from accounts.forms import UserProfileModelForm
 from accounts.models import UserProfile
-#### from movies.models import Movie, Review  ####
 
 
 @login_required
@@ -46,30 +47,6 @@ def my_user_profile(request):
     return render(request, "accounts/my_user_profile.html", ctx)
 
 
-@login_required
-def my_user_profile_update(request):
-    user_profile = get_object_or_404(UserProfile, user=request.user)
-
-    if request.method == "GET":
-        form = UserProfileModelForm(instance=user_profile)
-        ctx = {
-            "form": form,
-        }
-        return render(request, "accounts/my_user_profile_update.html", ctx)
-
-    if request.method == "POST":
-        form = UserProfileModelForm(request.POST, instance=user_profile)
-        if form.is_valid():
-            updated_profile = form.save()
-            messages.success(request, "Your profile has been updated successfully!")
-            return redirect("my_user_profile")
-
-        ctx = {
-            "form": form,
-        }
-        return render(request, "accounts/my_user_profile_update.html", ctx)
-
-
 class LogoutConfirmView(View):
     def get(self, request):
         return render(request, "registration/logout_confirm.html")
@@ -94,3 +71,17 @@ class RegisterView(View):
             "form": form,
         }
         return render(request, "registration/register.html", ctx)
+
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect('/')
+        else:
+            return render(request, 'registration/login2.html', {'error': 'Invalid credentials'})
+    else:
+        return render(request, 'registration/login2.html')

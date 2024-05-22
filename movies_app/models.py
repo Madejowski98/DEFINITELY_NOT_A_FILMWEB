@@ -47,6 +47,7 @@ GENRE_CHOICES = (
     (WESTERN, "Western"),
 )
 
+
 class Review(models.Model):
     """
     The Review model represents a user review for a specific movie.
