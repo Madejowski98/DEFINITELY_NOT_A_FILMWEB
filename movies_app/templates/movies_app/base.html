@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DNAF</title>
+    {% block title %}{% endblock %}
     <link rel="stylesheet" href="../../static/css/styles.css">
 </head>
 <body>
@@ -20,24 +20,15 @@
                 </ul>
             </nav>
         </div>
+        <ul>
+            <li><a href="{% url 'movie_list' %}">Movies</a></li>
+            <li><a href="{% url 'article_list' %}">Articles</a></li>
+            <li><a href="{% url 'genre_list' %}">Genres</a></li>
+        </ul>
     </header>
     <main>
-        <div class="container">
-            <h2>Latest Reviews</h2>
-            <div class="review">
-                <h3>Chernobyl</h3>
-                <p><strong>Rating:</strong> 9/10</p>
-                <p><strong>Review:</strong> From its haunting cinematography to its stellar performances, the series captivates audiences with its stark portrayal of the human cost and bureaucratic cover-ups in the aftermath of the catastrophe.</p>
-                <p><strong>Reviewed by:</strong> Max Verstappen</p>
-            </div>
-            <div class="review">
-                <h3>The Dark Knight</h3>
-                <p><strong>Rating:</strong> 9/10</p>
-                <p><strong>Review:</strong> Best movie ever. Heath ledger's work is phenomenal no words......</p>
-                <p><strong>Reviewed by:</strong>harrybhangu</p>
-            </div>
-            <!-- Add more reviews as needed -->
-        </div>
+        {% block body %}
+        {% endblock body %}
     </main>
     <footer>
         <div class="container">
