@@ -1,8 +1,9 @@
 {% extends 'movies_app/base.html' %}
+{% load static %}
 
 {% block title %}{{ movie.title }}{% endblock %}
 
-{% block content %}
+{% block body %}
     <h1>{{ movie.title }}</h1>
     <p>{{ movie.description }}</p>
     <p>Directed by {{ movie.director }}</p>
@@ -14,5 +15,6 @@
             <li>{{ review.user.username }}: {{ review.review }} ({{ review.rating }}/10)</li>
         {% endfor %}
     </ul>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <a href="{% url 'add_review' movie.id %}">Add Review</a>
 {% endblock %}

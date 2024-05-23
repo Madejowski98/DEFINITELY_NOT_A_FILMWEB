@@ -14,8 +14,8 @@ def movie_list(request):
 ## movie detail views
 def movie_detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
-    reviews = movie.reviews.all()
-    return render(request, "movies_app/movie_detail.html", {"movie": movie, "reviews": reviews})
+    reviews = Review.objects.filter(movie=movie)
+    return render(request, 'movies_app/movie_detail.html', {'movie': movie, 'reviews': reviews})
 
 
 ## adding movie view
@@ -27,10 +27,10 @@ def add_movie(request):
             movie = form.save(commit=False)
             movie.added_by = request.user
             movie.save()
-            return redirect("movie_detail", movie_id=movie.id)
+            return redirect('movie_detail', movie_id=movie.id)
     else:
         form = MovieForm()
-    return render(request, "movies_app/add_movie.html", {"form": form})
+    return render(request, 'movies_app/add_movie.html', {'form': form})
 
 
 ## list of all genres
@@ -50,3 +50,45 @@ def add_genre(request):
     else:
         form = GenreForm()
     return render(request, 'movies_app/add_genre.html', {'form': form})
+
+##list of articles view
+def article_list(request):
+    articles = Article.objects.all()
+    return render(request, 'movies_app/article_list.html', {'articles': articles})
+
+
+## article details
+def article_detail(request, article_id):
+    article = get_object_or_404(Article, pk=article_id)
+    return render(request, 'movies_app/article_detail.html', {'article': article})
+
+
+## adding a new article
+@login_required
+def add_article(request):
+    if request.method == "POST":
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.added_by = request.user
+            article.save()
+            return redirect('article_detail', article_id=article.id)
+    else:
+        form = ArticleForm()
+    return render(request, 'movies_app/add_article.html', {'form': form})
+
+#adding a new review
+@login_required
+def add_review(request, movie_id):
+    movie = get_object_or_404(Movie, pk=movie_id)
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.movie = movie
+            review.user = request.user
+            review.save()
+            return redirect('movie_detail', movie_id=movie.id)
+    else:
+        form = ReviewForm()
+    return render(request, 'movies_app/add_review.html', {'form': form, 'movie': movie})
