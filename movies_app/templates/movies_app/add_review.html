@@ -1,9 +1,9 @@
 {% extends 'movies_app/base.html' %}
 
-{% block title %}Add Genre{% endblock %}
+{% block title %}Add Review{% endblock %}
 
 {% block body %}
-    <h1>Add Genre</h1>
+    <h1>Add Review</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
