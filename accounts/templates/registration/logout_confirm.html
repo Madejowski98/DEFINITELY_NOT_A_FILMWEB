@@ -1,11 +1,9 @@
-{% extends "accounts/base.html" %}
-
-{% block title %}Logout confirm{% endblock title %}
-
+{% extends "movies_app/base.html" %}
+{% block title %}Logout Confirm{% endblock %}
 {% block body %}
     <div>Are you sure you want to log out?</div>
-    <form action="{% url "logout" %}" method="post">
-        {%  csrf_token %}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
         <input type="submit" value="Log out">
     </form>
 {% endblock body %}
