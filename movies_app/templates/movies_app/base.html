@@ -17,16 +17,25 @@
                     <li><a href="#">Reviews</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'my_user_profile' %}">My Profile</a></li>
+                        <li><a href="{% url 'logout_confirm' %}">Log out</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Log in</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
-        <ul>
-            <li><a href="{% url 'movie_list' %}">Movies</a></li>
-            <li><a href="{% url 'article_list' %}">Articles</a></li>
-            <li><a href="{% url 'genre_list' %}">Genres</a></li>
-        </ul>
     </header>
     <main>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         {% block body %}
         {% endblock body %}
     </main>

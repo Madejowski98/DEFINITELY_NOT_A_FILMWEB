@@ -1,8 +1,6 @@
-{% extends "accounts/base.html" %}
-
-{% block title %}Logged out{% endblock title %}
-
+{% extends "movies_app/base.html" %}
+{% block title %}Logged Out{% endblock %}
 {% block body %}
     <h1>You have been successfully logged out.</h1>
-    <a href="{% url "login" %}">Log in</a>
+    <a href="{% url 'login' %}">Log in</a>
 {% endblock body %}

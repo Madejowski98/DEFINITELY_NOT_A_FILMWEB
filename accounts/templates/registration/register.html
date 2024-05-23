@@ -1,10 +1,10 @@
-{% extends "accounts/base.html" %}
+{% extends "movies_app/base.html" %}
 {% block title %}Register{% endblock %}
 {% block body %}
     <h1>Register your account</h1>
-    <form action="{% url "register" %}" method="post">
-    {% csrf_token %}
-    {{ form.as_ul }}
-    <input type="submit" value="Register">
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Register">
     </form>
 {% endblock body %}
