@@ -29,3 +29,17 @@ class CustomUserCreationForm(forms.ModelForm):
             user.save()
             UserProfile.objects.create(user=user, gender=self.cleaned_data['gender'])
         return user
+
+
+class UserProfileEditForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = UserProfile
+        fields = ['gender']
+
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
+        super(UserProfileEditForm, self).__init__(*args, **kwargs)
+        if user:
+            self.fields['email'].initial = user.email

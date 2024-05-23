@@ -9,4 +9,5 @@
         {% csrf_token %}
         <input type="submit" value="Delete Account">
     </form>
+    <a href="{% url 'profile_update' %}"><button>Edit Profile</button></a>
 {% endblock body %}

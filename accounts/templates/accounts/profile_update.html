@@ -1,0 +1,12 @@
+{% extends "movies_app/base.html" %}
+{% block title %}Edit Profile{% endblock %}
+
+{% block body %}
+    <h1 xmlns="http://www.w3.org/1999/html">Edit Profile</h1>
+    <form method="post" action="{% url 'profile_update' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save changes</button>
+    </form>
+    <a href="{% url 'my_user_profile' %}"><button type="submit"> Cancel </button> </a>
+{% endblock %}
