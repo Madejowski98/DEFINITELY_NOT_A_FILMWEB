@@ -79,3 +79,124 @@ footer {
     padding: 10px 0;
     margin-top: 20px;
 }
+/*CSS FOR HOME*/
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: #333;
+    color: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.hero-section .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1e90ff;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.hero-section .cta-button:hover {
+    background-color: #1c86ee;
+}
+
+/* Movies Section */
+.movies-section {
+    padding: 20px 0;
+}
+
+.movies-section h2 {
+    font-size: 2em;
+    color: #ffa500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.movie-card {
+    background: #444;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    width: 200px;
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.movie-card img {
+    width: 100%;
+    border-bottom: 2px solid #333;
+}
+
+.movie-card h3 {
+    margin: 15px 0 5px;
+    color: #f0f0f0;
+}
+
+.movie-card p {
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.movie-card a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ff6347;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.movie-card a:hover {
+    background-color: #ff4500;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+/* Reviews Section */
+.reviews-section {
+    padding: 20px 0;
+}
+
+.reviews-section h2 {
+    font-size: 2em;
+    color: #ffa500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reviews-section ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.reviews-section ul li {
+    background: #333;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    color: #f0f0f0;
+    border: 1px solid #444;
+}
