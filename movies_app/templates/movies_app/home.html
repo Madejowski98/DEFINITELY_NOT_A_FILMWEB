@@ -1,0 +1,36 @@
+{% extends 'movies_app/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="hero-section">
+    <h1>Welcome to DNAF</h1>
+    <p>Discover, rate, and review your favorite movies</p>
+</div>
+
+<div class="movies-section">
+    <h2>Latest Movies</h2>
+    <div class="movies-grid">
+        {% for movie in latest_movies %}
+            <div class="movie-card">
+                <img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster">
+                <h3>{{ movie.title }}</h3>
+                <p>{{ movie.release_year }}</p>
+                <a href="{% url 'movie_detail' movie.id %}" class="btn">View Details</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="reviews-section">
+    <h2>Recent Reviews</h2>
+    <ul>
+        {% for review in recent_reviews %}
+            <li>
+                <strong>{{ review.user.username }}</strong> reviewed <em>{{ review.movie.title }}</em>:
+                "{{ review.review }}" ({{ review.rating }}/10)
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -51,6 +51,7 @@ def add_genre(request):
         form = GenreForm()
     return render(request, 'movies_app/add_genre.html', {'form': form})
 
+
 ##list of articles view
 def article_list(request):
     articles = Article.objects.all()
@@ -77,6 +78,7 @@ def add_article(request):
         form = ArticleForm()
     return render(request, 'movies_app/add_article.html', {'form': form})
 
+
 #adding a new review
 @login_required
 def add_review(request, movie_id):
@@ -92,3 +94,14 @@ def add_review(request, movie_id):
     else:
         form = ReviewForm()
     return render(request, 'movies_app/add_review.html', {'form': form, 'movie': movie})
+
+
+##home view
+def home(request):
+    latest_movies = Movie.objects.order_by('-release_year')[:5]
+    recent_reviews = Review.objects.order_by('-created_at')[:5]
+    context = {
+        'latest_movies': latest_movies,
+        'recent_reviews': recent_reviews,
+    }
+    return render(request, 'movies_app/home.html', context)

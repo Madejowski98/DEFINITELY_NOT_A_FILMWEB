@@ -14,4 +14,5 @@ urlpatterns = [
     path('add_article', views.add_article, name='add_article'),
     path('genres/', views.genre_list, name='genre_list'),
     path('add_genre', views.add_genre, name='add_genre'),
+    path('home', views.home, name='home'),
 ]
