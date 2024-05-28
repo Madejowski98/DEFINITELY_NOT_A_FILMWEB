@@ -105,3 +105,13 @@ def home(request):
         'recent_reviews': recent_reviews,
     }
     return render(request, 'movies_app/home.html', context)
+
+
+##about view
+def about(request):
+    return render(request, 'movies_app/about.html')
+
+
+##contact view
+def contact(request):
+    return render(request, 'movies_app/contact.html')
