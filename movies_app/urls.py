@@ -15,4 +15,6 @@ urlpatterns = [
     path('genres/', views.genre_list, name='genre_list'),
     path('add_genre', views.add_genre, name='add_genre'),
     path('home', views.home, name='home'),
+    path('about', views.about, name='about'),
+    path('contact', views.contact, name='contact'),
 ]
