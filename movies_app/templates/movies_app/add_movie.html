@@ -1,4 +1,5 @@
 {% extends 'movies_app/base.html' %}
+{% load static %}
 
 {% block title %}Add Movie{% endblock %}
 
@@ -8,5 +9,9 @@
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit</button>
+    <div>
+        <label for="id_image">Add Image:</label>
+        <input type="file" name="image" id="id_image">
+    </div>
     </form>
 {% endblock %}

@@ -1,15 +1,50 @@
 {% extends 'movies_app/base.html' %}
 
-{% block title %}Movie List{% endblock %}
+{% block title %}Movie list{% endblock %}
 
 {% block body %}
-    <h1>Movies</h1>
-    <ul>
+<h1>Movies</h1>
+
+<form method="get" class="filter-form">
+    <div class="filter-group">
+        <label for="year">Year of Production:</label>
+        <input type="number" id="year" name="year" value="{{ request.GET.year }}">
+    </div>
+    <div class="filter-group">
+        <label for="genre">Genre:</label>
+        <select id="genre" name="genre">
+            <option value="">All</option>
+            {% for genre in genres %}
+                <option value="{{ genre.id }}" {% if request.GET.genre == genre.id|stringformat:"s" %}selected{% endif %}>
+                    {{ genre.name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit">Filter</button>
+</form>
+
+<div class="movies-section">
+    <div class="movies-grid">
         {% for movie in movies %}
-            <li>
-                <a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a>
-            </li>
+            <div class="movie-card">
+                <img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster">
+                <h3>{{ movie.title }}</h3>
+                <p>{{ movie.release_year }}</p>
+                <a href="{% url 'movie_detail' movie.id %}" class="btn">View Details</a>
+            </div>
         {% endfor %}
-    </ul>
-    <a href="{% url 'add_movie' %}">Add Movie</a>
+    </div>
+</div>
+
+<a href="{% url 'add_movie' %}">Add Movie</a>
+
+<style>
+    .filter-form {
+        margin-bottom: 20px;
+    }
+    .filter-group {
+        margin-bottom: 10px;
+    }
+</style>
 {% endblock %}

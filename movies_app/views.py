@@ -9,7 +9,23 @@ from django.contrib import messages
 ## movie list view
 def movie_list(request):
     movies = Movie.objects.filter(approved=True)
-    return render(request, "movies_app/movie_list.html", {"movies": movies})
+    genres = Genre.objects.all()
+
+    # filter by release date
+    year = request.GET.get('year')
+    if year:
+        movies = movies.filter(release_year=year)
+
+    # filter by genre
+    genre_id = request.GET.get('genre')
+    if genre_id:
+        movies = movies.filter(genre_id=genre_id)
+
+    context = {
+        'movies': movies,
+        'genres': genres,
+    }
+    return render(request, "movies_app/movie_list.html", context)
 
 
 ## movie detail views
@@ -23,7 +39,7 @@ def movie_detail(request, movie_id):
 @login_required
 def add_movie(request):
     if request.method == "POST":
-        form = MovieForm(request.POST)
+        form = MovieForm(request.POST, request.FILES)
         if form.is_valid():
             movie = form.save(commit=False)
             movie.added_by = request.user
