@@ -1,6 +1,8 @@
+from django.conf.urls.static import static
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
+from config import settings
 from movies_app import views
 
 
@@ -20,4 +22,4 @@ urlpatterns = [
     path('approve_movie/<int:movie_id>/', views.approve_movie, name='approve_movie'),
     path('reject_movie/<int:movie_id>/', views.reject_movie, name='reject_movie'),
     path('pending_movies/', views.pending_movies, name='pending_movies'),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
