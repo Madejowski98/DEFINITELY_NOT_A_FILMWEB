@@ -2,18 +2,19 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Movie, Review, Article, Genre
 from .forms import MovieForm, ReviewForm, ArticleForm, GenreForm
+from django.contrib import messages
 
 
 ## MOVIE VIEWS
 ## movie list view
 def movie_list(request):
-    movies = Movie.objects.all()
+    movies = Movie.objects.filter(approved=True)
     return render(request, "movies_app/movie_list.html", {"movies": movies})
 
 
 ## movie detail views
 def movie_detail(request, movie_id):
-    movie = get_object_or_404(Movie, pk=movie_id)
+    movie = get_object_or_404(Movie, pk=movie_id, approved=True)
     reviews = Review.objects.filter(movie=movie)
     return render(request, 'movies_app/movie_detail.html', {'movie': movie, 'reviews': reviews})
 
@@ -27,10 +28,46 @@ def add_movie(request):
             movie = form.save(commit=False)
             movie.added_by = request.user
             movie.save()
-            return redirect('movie_detail', movie_id=movie.id)
+            return redirect('movie_list')
     else:
         form = MovieForm()
     return render(request, 'movies_app/add_movie.html', {'form': form})
+
+
+# admin approval view
+@login_required
+def approve_movie(request, movie_id):
+    if request.user.is_staff:
+        movie = get_object_or_404(Movie, pk=movie_id)
+        movie.approved = True
+        movie.save()
+        messages.success(request, f'The movie "{movie.title}" has been approved.')
+        return redirect('pending_movies')
+    else:
+        messages.error(request, 'You do not have permission to approve movies.')
+        return redirect('home')
+
+
+@login_required
+def reject_movie(request, movie_id):
+    if request.user.is_staff:
+        movie = get_object_or_404(Movie, pk=movie_id)
+        movie.delete()
+        messages.success(request, f'The movie "{movie.title}" has been rejected and deleted.')
+        return redirect('pending_movies')
+    else:
+        messages.error(request, 'You do not have permission to reject movies.')
+        return redirect('home')
+
+
+@login_required
+def pending_movies(request):
+    if request.user.is_staff:
+        movies = Movie.objects.filter(approved=False)
+        return render(request, 'movies_app/pending_movies.html', {'movies': movies})
+    else:
+        messages.error(request, 'You do not have permission to view pending movies.')
+        return redirect('home')
 
 
 ## list of all genres
@@ -98,7 +135,7 @@ def add_review(request, movie_id):
 
 ##home view
 def home(request):
-    latest_movies = Movie.objects.order_by('-release_year')[:5]
+    latest_movies = Movie.objects.filter(approved=True).order_by('-release_year')[:5]
     recent_reviews = Review.objects.order_by('-created_at')[:5]
     context = {
         'latest_movies': latest_movies,
