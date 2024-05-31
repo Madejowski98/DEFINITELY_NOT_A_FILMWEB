@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Movie, Review, Article, Genre
 from .forms import MovieForm, ReviewForm, ArticleForm, GenreForm
-from django.contrib import messages
 
 
 ## MOVIE VIEWS
@@ -143,10 +142,34 @@ def add_review(request, movie_id):
             review.movie = movie
             review.user = request.user
             review.save()
+            messages.success(request, "Review added successfully.")
             return redirect('movie_detail', movie_id=movie.id)
     else:
         form = ReviewForm()
     return render(request, 'movies_app/add_review.html', {'form': form, 'movie': movie})
+
+@login_required
+def edit_review(request, review_id):
+    review = get_object_or_404(Review, pk=review_id, user=request.user)
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Review updated successfully.')
+            return redirect('movie_detail', movie_id=review.movie.id)
+    else:
+        form = ReviewForm(instance=review)
+    return render(request, 'movies_app/review_update.html', {'form': form, 'review': review})
+
+@login_required
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, pk=review_id, user=request.user)
+    if request.method == 'POST':
+        movie_id = review.movie.id
+        review.delete()
+        messages.success(request, 'Review deleted successfully.')
+        return redirect('movie_detail', movie_id=movie_id)
+    return render(request, 'movies_app/review_delete_confirm.html', {'review': review})
 
 
 ##home view
