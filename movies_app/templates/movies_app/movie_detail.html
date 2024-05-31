@@ -9,12 +9,20 @@
     <p>Directed by {{ movie.director }}</p>
     <p>Genre: {{ movie.genre.name }}</p>
     <p>Release Year: {{ movie.release_year }}</p>
+
     <h2>Reviews</h2>
     <ul>
         {% for review in reviews %}
-            <li>{{ review.user.username }}: {{ review.review }} ({{ review.rating }}/10)</li>
+            <li>
+                <strong>{{ review.user.username }}</strong>: {{ review.review }} ({{ review.rating }}/10)
+                {% if review.user == request.user %}
+                    <a href="{% url 'edit_review' review.id %}">Edit</a>
+                    <a href="{% url 'delete_review' review.id %}">Delete</a>
+                {% endif %}
+            </li>
         {% endfor %}
     </ul>
+
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <a href="{% url 'add_review' movie.id %}">Add Review</a>
 {% endblock %}
