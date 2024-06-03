@@ -5,13 +5,29 @@
 
 {% block body %}
 <h1>Pending Articles</h1>
-<ul>
-    {% for article in articles %}
-        <li>
-            <a href="{% url 'article_detail' article.id %}">{{ article.title }}</a>
-            <a href="{% url 'approve_article' article.id %}">Approve</a>
-            <a href="{% url 'reject_article' article.id %}">Reject</a>
-        </li>
-    {% endfor %}
-</ul>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Added by</th>
+            <th>Added on</th>
+            <th>Description</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <td><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></td>
+            <td>{{ article.added_by.username }}</td>
+            <td>{{ article.created_at }}</td>
+            <td>{{ article.description|truncatewords:20 }}</td>
+            <td>
+                <a href="{% url 'approve_article' article.id %}"><button type="button">Approve</button></a>
+                <a href="{% url 'reject_article' article.id %}"><button type="button">Reject</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
