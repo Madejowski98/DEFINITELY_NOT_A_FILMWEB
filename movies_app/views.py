@@ -113,7 +113,11 @@ def article_list(request):
 
 # article details
 def article_detail(request, article_id):
-    article = get_object_or_404(Article, pk=article_id, approved=True)
+    if request.user.is_staff:
+        article = get_object_or_404(Article, pk=article_id)
+    else:
+        article = get_object_or_404(Article, pk=article_id, approved=True)
+
     return render(request, 'movies_app/article_detail.html', {'article': article})
 
 
