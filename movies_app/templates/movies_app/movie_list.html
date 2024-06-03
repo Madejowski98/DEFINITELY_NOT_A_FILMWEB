@@ -28,7 +28,9 @@
     <div class="movies-grid">
         {% for movie in movies %}
             <div class="movie-card">
-                <img src="{{ movie.poster_url }}" alt="{{ movie.title }} poster">
+            {% if movie.photo %}
+                <img src="{{ movie.photo.url }}" alt="{{ movie.title }} poster">
+            {% endif %}
                 <h3>{{ movie.title }}</h3>
                 <p>{{ movie.release_year }}</p>
                 <a href="{% url 'movie_detail' movie.id %}" class="btn">View Details</a>

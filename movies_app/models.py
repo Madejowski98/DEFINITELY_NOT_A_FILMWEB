@@ -24,28 +24,6 @@ THRILLER = "THRILLER"
 WAR = "WAR"
 WESTERN = "WESTERN"
 
-# Genre choices list
-GENRE_CHOICES = (
-    (ACTION, "Action"),
-    (ADVENTURE, "Adventure"),
-    (ANIMATION, "Animation"),
-    (COMEDY, "Comedy"),
-    (CRIME, "Crime"),
-    (DRAMA, "Drama"),
-    (DOCUMENTARY, "Documentary"),
-    (SCI_FI, "Sci-Fi"),
-    (FAMILY, "Family"),
-    (HISTORY, "History"),
-    (FANTASY, "Fantasy"),
-    (HORROR, "Horror"),
-    (MUSICAL, "Musical"),
-    (MYSTERY, "Mystery"),
-    (ROMANCE, "Romance"),
-    (THRILLER, "Thriller"),
-    (WAR, "War"),
-    (WESTERN, "Western"),
-)
-
 
 class Review(models.Model):
     """

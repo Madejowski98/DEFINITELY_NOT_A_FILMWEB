@@ -4,28 +4,35 @@
 {% block title %}{{ movie.title }}{% endblock %}
 
 {% block body %}
-    {% if movie.image %}
-        <img src="{{ movie.image.url }}" alt="{{ movie.title }}">
+<div class="movie-detail-container">
+    {% if movie.photo %}
+        <img src="{{ movie.photo.url }}" alt="{{ movie.title }}" class="movie-poster">
     {% endif %}
     <h1>{{ movie.title }}</h1>
     <p>{{ movie.description }}</p>
     <p>Directed by {{ movie.director }}</p>
     <p>Genre: {{ movie.genre.name }}</p>
     <p>Release Year: {{ movie.release_year }}</p>
+</div>
 
+<div class="reviews-section">
     <h2>Reviews</h2>
-    <ul>
+    <ul class="review-list">
         {% for review in reviews %}
-            <li>
+            <li class="review-item">
                 <strong>{{ review.user.username }}</strong>: {{ review.review }} ({{ review.rating }}/10)
-                {% if review.user == request.user %}
-                    <a href="{% url 'edit_review' review.id %}">Edit</a>
-                    <a href="{% url 'delete_review' review.id %}">Delete</a>
-                {% endif %}
+                <div class="button-container">
+                    {% if review.user == request.user %}
+                        <a href="{% url 'edit_review' review.id %}" class="button">Edit</a>
+                        <a href="{% url 'delete_review' review.id %}" class="button">Delete</a>
+                    {% endif %}
+                </div>
             </li>
         {% endfor %}
     </ul>
 
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <a href="{% url 'add_review' movie.id %}">Add Review</a>
+    <a href="{% url 'add_review' movie.id %}" class="btn">Add Review</a>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock %}

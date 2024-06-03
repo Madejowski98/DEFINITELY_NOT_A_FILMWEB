@@ -27,4 +27,4 @@ urlpatterns = [
     path('approve_movie/<int:movie_id>/', views.approve_movie, name='approve_movie'),
     path('reject_movie/<int:movie_id>/', views.reject_movie, name='reject_movie'),
     path('pending_movies/', views.pending_movies, name='pending_movies'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
