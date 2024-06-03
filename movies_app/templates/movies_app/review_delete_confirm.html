@@ -10,6 +10,6 @@
     <form method="post">
         {% csrf_token %}
         <button type="submit">Yes, delete</button>
-        <a href="{% url 'movie_detail' review.movie.id %}"><button type="submit">Cancel</button></a>
+        <a href="{% url 'movie_detail' review.movie.id %}"><button type="button">Cancel</button></a>
     </form>
 {% endblock %}

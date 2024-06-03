@@ -34,4 +34,16 @@
         {% endfor %}
     </ul>
 </div>
+
+<div class="articles-section">
+    <h2>Latest Articles</h2>
+    <ul>
+        {% for article in latest_articles %}
+            <li>
+                <h3><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h3>
+                <p>{{ article.created_at|date:"F d, Y" }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

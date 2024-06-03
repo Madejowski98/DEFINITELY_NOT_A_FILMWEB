@@ -5,7 +5,7 @@
 {% block title %}Edit Review{% endblock %}
 
 {% block body %}
-    <h1>Edit Review for {{ movie.title }}</h1>
+    <h1>Edit Your Review</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

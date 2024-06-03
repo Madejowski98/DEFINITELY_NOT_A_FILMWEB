@@ -86,10 +86,12 @@ class Article(models.Model):
     """
     The Article model represents an article with its title, description,
     the user who added it, and timestamps for creation.
+    Model updated with approve/reject methods.
     """
     title = models.CharField(max_length=255)
     description = models.TextField()
     added_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    approved = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

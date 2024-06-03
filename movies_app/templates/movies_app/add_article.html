@@ -1,0 +1,13 @@
+{% extends 'movies_app/base.html' %}
+{% load static %}
+
+{% block title %}Add Article{% endblock %}
+
+{% block body %}
+<h1>Add Article</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
