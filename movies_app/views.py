@@ -39,7 +39,7 @@ def movie_detail(request, movie_id):
 @login_required
 def add_movie(request):
     if request.method == "POST":
-        form = MovieForm(request.POST)
+        form = MovieForm(request.POST, request.FILES)
         if form.is_valid():
             movie = form.save(commit=False)
             movie.added_by = request.user
