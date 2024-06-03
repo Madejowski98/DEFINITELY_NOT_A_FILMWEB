@@ -1,11 +1,12 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Movie, Review, Article, Genre
 from .forms import MovieForm, ReviewForm, ArticleForm, GenreForm
 
 
-## MOVIE VIEWS
-## movie list view
+# MOVIE VIEWS
+# movie list view
 def movie_list(request):
     movies = Movie.objects.filter(approved=True)
     genres = Genre.objects.all()
@@ -27,14 +28,14 @@ def movie_list(request):
     return render(request, "movies_app/movie_list.html", context)
 
 
-## movie detail views
+# movie detail views
 def movie_detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id, approved=True)
     reviews = Review.objects.filter(movie=movie)
     return render(request, 'movies_app/movie_detail.html', {'movie': movie, 'reviews': reviews})
 
 
-## adding movie view
+# adding movie view
 @login_required
 def add_movie(request):
     if request.method == "POST":
@@ -85,13 +86,13 @@ def pending_movies(request):
         return redirect('home')
 
 
-## list of all genres
+# list of all genres
 def genre_list(request):
     genres = Genre.objects.all()
     return render(request, 'movies_app/genre_list.html', {'genres': genres})
 
 
-## adding a new genre
+# adding a new genre
 @login_required
 def add_genre(request):
     if request.method == "POST":
@@ -104,19 +105,19 @@ def add_genre(request):
     return render(request, 'movies_app/add_genre.html', {'form': form})
 
 
-##list of articles view
+# list of articles view
 def article_list(request):
-    articles = Article.objects.all()
+    articles = Article.objects.filter(approved=True).order_by('-created_at')[:5]
     return render(request, 'movies_app/article_list.html', {'articles': articles})
 
 
-## article details
+# article details
 def article_detail(request, article_id):
-    article = get_object_or_404(Article, pk=article_id)
+    article = get_object_or_404(Article, pk=article_id, approved=True)
     return render(request, 'movies_app/article_detail.html', {'article': article})
 
 
-## adding a new article
+# adding a new article
 @login_required
 def add_article(request):
     if request.method == "POST":
@@ -125,13 +126,48 @@ def add_article(request):
             article = form.save(commit=False)
             article.added_by = request.user
             article.save()
-            return redirect('article_detail', article_id=article.id)
+            return redirect('article_list')
     else:
         form = ArticleForm()
     return render(request, 'movies_app/add_article.html', {'form': form})
 
 
-#adding a new review
+@login_required
+def approve_article(request, article_id):
+    if request.user.is_staff:
+        article = get_object_or_404(Article, pk=article_id)
+        article.approved = True
+        article.save()
+        messages.success(request, f'The article "{article.title}" has been approved.')
+        return redirect('pending_articles')
+    else:
+        messages.error(request, 'You do not have permission to approve articles.')
+        return redirect('home')
+
+
+@login_required
+def reject_article(request, article_id):
+    if request.user.is_staff:
+        article = get_object_or_404(Article, pk=article_id)
+        article.delete()
+        messages.success(request, f'The article "{article.title}" has been rejected and deleted.')
+        return redirect('pending_articles')
+    else:
+        messages.error(request, 'You do not have permission to reject articles.')
+        return redirect('home')
+
+
+@login_required
+def pending_articles(request):
+    if request.user.is_staff:
+        articles = Article.objects.filter(approved=False)
+        return render(request, 'movies_app/pending_articles.html', {'articles': articles})
+    else:
+        messages.error(request, 'You do not have permission to view pending articles.')
+        return redirect('home')
+
+
+# adding a new review
 @login_required
 def add_review(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id)
@@ -148,6 +184,7 @@ def add_review(request, movie_id):
         form = ReviewForm()
     return render(request, 'movies_app/add_review.html', {'form': form, 'movie': movie})
 
+
 @login_required
 def edit_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id, user=request.user)
@@ -161,6 +198,7 @@ def edit_review(request, review_id):
         form = ReviewForm(instance=review)
     return render(request, 'movies_app/review_update.html', {'form': form, 'review': review})
 
+
 @login_required
 def delete_review(request, review_id):
     review = get_object_or_404(Review, pk=review_id, user=request.user)
@@ -172,22 +210,25 @@ def delete_review(request, review_id):
     return render(request, 'movies_app/review_delete_confirm.html', {'review': review})
 
 
-##home view
+# home view
 def home(request):
     latest_movies = Movie.objects.filter(approved=True).order_by('-release_year')[:5]
     recent_reviews = Review.objects.order_by('-created_at')[:5]
+    latest_articles = Article.objects.filter(approved=True).order_by('-created_at')[:5]
+
     context = {
         'latest_movies': latest_movies,
         'recent_reviews': recent_reviews,
+        'latest_articles': latest_articles
     }
     return render(request, 'movies_app/home.html', context)
 
 
-##about view
+# about view
 def about(request):
     return render(request, 'movies_app/about.html')
 
 
-##contact view
+# contact view
 def contact(request):
     return render(request, 'movies_app/contact.html')

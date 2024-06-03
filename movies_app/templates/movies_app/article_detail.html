@@ -1,0 +1,10 @@
+{% extends 'movies_app/base.html' %}
+{% load static %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block body %}
+<h1>{{ article.title }}</h1>
+<p>{{ article.content }}</p>
+<p>Added by {{ article.added_by.username }} on {{ article.created_at|date:"F d, Y" }}</p>
+{% endblock %}
