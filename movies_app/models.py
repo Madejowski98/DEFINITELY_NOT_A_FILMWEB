@@ -4,26 +4,6 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-# Genre constants definitions
-ACTION = "ACTION"
-ADVENTURE = "ADVENTURE"
-ANIMATION = "ANIMATION"
-COMEDY = "COMEDY"
-CRIME = "CRIME"
-DRAMA = "DRAMA"
-DOCUMENTARY = "DOCUMENTARY"
-SCI_FI = "SCI-FI"
-FAMILY = "FAMILY"
-HISTORY = "HISTORY"
-FANTASY = "FANTASY"
-HORROR = "HORROR"
-MUSICAL = "MUSICAL"
-MYSTERY = "MYSTERY"
-ROMANCE = "ROMANCE"
-THRILLER = "THRILLER"
-WAR = "WAR"
-WESTERN = "WESTERN"
-
 
 class Review(models.Model):
     """
