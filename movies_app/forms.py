@@ -5,8 +5,8 @@ from .models import Movie, Review, Article, Genre
 class MovieForm(forms.ModelForm):
     class Meta:
         model = Movie
-        fields = ["title", "genre", "release_year", "director", "description"]
-        image = forms.ImageField(required=True)
+        fields = ["title", "genre", "release_year", "director", "description", "photo"]
+        # photo = forms.ImageField(required=True)
 
 
 class ReviewForm(forms.ModelForm):

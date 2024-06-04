@@ -285,6 +285,598 @@ h1 {
 
 .button:active {
     background-color: #c7b481;
-    box-shadow: 0 2px #666;
+    box-shadow: 0 2px #333333;
     transform: translateY(2px);
+}
+
+/* about us page */
+
+body {
+    background-color: #333333FF;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about_us {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+.about_us_paragraph {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.team-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #c7b481;
+}
+
+.member p {
+    font-size: 1em;
+    color: #000000;
+}
+
+/* CONTACT US PAGE */
+body {
+    background-color: #333333FF;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #c7b481;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*MOVIE LIST STYLES */
+body {
+    background-color: #333333FF;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.movie-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-group label {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #c7b481;
+    color: #121212;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c7b481;
+}
+
+.movies-section {
+    margin-top: 20px;
+}
+
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.movie-card {
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 200px;
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.movie-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.movie-card p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.movie-card .btn {
+    padding: 8px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #c7b481;
+    color: #121212;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.movie-card .btn:hover {
+    background-color: #c7b481;
+}
+
+.add-movie-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #c7b481;
+    color: #121212;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.add-movie-btn:hover {
+    background-color: #c7b481;
+}
+
+/* ADD MOVIE STYLE */
+body {
+    background-color: #333333FF;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.add-movie-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+.add-movie-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-movie-form p {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.add-movie-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.add-movie-form input[type="text"],
+.add-movie-form input[type="number"],
+.add-movie-form input[type="file"],
+.add-movie-form select,
+.add-movie-form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #c7b481;
+    color: #121212;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c7b481;
+}
+
+/* My profile styles */
+/* Style for the profile container */
+.profile-container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the profile title */
+.profile-container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for profile information */
+.profile-container div {
+    margin-bottom: 10px;
+}
+
+/* Style for profile actions */
+.profile-actions {
+    margin-top: 20px;
+}
+
+/* Style for delete account button */
+.delete-account-btn {
+    background-color: #ff6347; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for edit profile button */
+.edit-profile-btn {
+    background-color: #4169e1; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style to display buttons inline */
+.profile-actions .delete-account-form,
+.profile-actions .edit-profile-link {
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing between buttons */
+}
+
+/* Styles for editing the profile */
+
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+.container form {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Style for form elements */
+.container form input[type="text"],
+.container form input[type="email"],
+.container form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+.container form button[type="submit"] {
+    background-color: #4169e1; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for cancel button */
+.container form a button[type="submit"] {
+    background-color: #ff6347; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+}
+
+/* Add margin between buttons */
+.container form button[type="submit"],
+.container form a button[type="submit"] {
+    margin-right: 10px;
+}
+
+/* account delete styles */
+
+/* Style for the container */
+.delete-account-container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.delete-account-container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the confirmation message */
+.delete-account-container div {
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+.delete-account-container form {
+    display: inline-block;
+}
+
+/* Style for confirm button */
+.delete-account-container .confirm-btn {
+    background-color: #ff6347; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for cancel button */
+.delete-account-container .cancel-btn {
+    background-color: #4169e1; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for cancel link */
+.delete-account-container .cancel-link {
+    text-decoration: none; /* Remove underline */
+}
+
+
+
+
+/* Styles for register view */
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+.container form {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Style for form elements */
+.container form input[type="text"],
+.container form input[type="email"],
+.container form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+.container form input[type="submit"] {
+    background-color: #4169e1; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Styles for login view */
+
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the error message */
+.container .error {
+    color: #ff6347; /* Adjust color as needed */
+    margin-bottom: 10px;
+}
+
+/* Style for the form */
+.container form {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Style for form elements */
+.container form input[type="text"],
+.container form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+.container form input[type="submit"] {
+    background-color: #4169e1; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Logged out view styles */
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the login link */
+.container a {
+    color: #ffffff; /* Adjust color as needed */
+    text-decoration: none;
+}
+
+/* Style for the login link on hover */
+.container a:hover {
+    text-decoration: underline;
+}
+
+/* Logout view styles */
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the confirmation message */
+.container div {
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+.container form {
+    display: inline-block;
+}
+
+/* Style for the submit button */
+.container form input[type="submit"] {
+    background-color: #4169e1; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
 }
