@@ -12,6 +12,7 @@
             <th>Added by</th>
             <th>Added on</th>
             <th>Description</th>
+            <th>Photo</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -22,6 +23,7 @@
             <td>{{ article.added_by.username }}</td>
             <td>{{ article.created_at }}</td>
             <td>{{ article.description|truncatewords:20 }}</td>
+            <td>{{ article.photo }}</td>
             <td>
                 <a href="{% url 'approve_article' article.id %}"><button type="button">Approve</button></a>
                 <a href="{% url 'reject_article' article.id %}"><button type="button">Reject</button></a>
