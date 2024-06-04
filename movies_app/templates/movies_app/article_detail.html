@@ -4,7 +4,12 @@
 {% block title %}{{ article.title }}{% endblock %}
 
 {% block body %}
+    <div class="article-detail-container">
+    {% if article.photo %}
+        <img src="{{ article.photo.url }}" alt="{{ article.title }}" class="article-poster">
+        {% endif %}
 <h1>{{ article.title }}</h1>
 <p>{{ article.description }}</p>
 <p>Added by: {{ article.added_by.username }} on: {{ article.created_at|date:"F d, Y" }}</p>
+</div>
 {% endblock %}

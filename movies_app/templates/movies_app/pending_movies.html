@@ -11,6 +11,7 @@
             <th>Director</th>
             <th>Release Year</th>
             <th>Description</th>
+            <th>Photo</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -21,6 +22,7 @@
             <td>{{ movie.director }}</td>
             <td>{{ movie.release_year }}</td>
             <td>{{ movie.description }}</td>
+            <td>{{ movie.photo }}</td>
             <td>
                 <a href="{% url 'approve_movie' movie.id %}">Approve</a>
                 <a href="{% url 'reject_movie' movie.id %}">Reject</a>
