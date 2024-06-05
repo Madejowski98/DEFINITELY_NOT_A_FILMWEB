@@ -125,7 +125,7 @@ def article_detail(request, article_id):
 @login_required
 def add_article(request):
     if request.method == "POST":
-        form = ArticleForm(request.POST)
+        form = ArticleForm(request.POST, request.FILES)
         if form.is_valid():
             article = form.save(commit=False)
             article.added_by = request.user

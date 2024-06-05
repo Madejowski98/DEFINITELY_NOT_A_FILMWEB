@@ -18,7 +18,7 @@ class ReviewForm(forms.ModelForm):
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ["title", "description"]
+        fields = ["title", "description", "photo"]
 
 
 class GenreForm(forms.ModelForm):

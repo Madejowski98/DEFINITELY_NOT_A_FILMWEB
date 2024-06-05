@@ -112,6 +112,37 @@ footer {
     background-color: #1c86ee;
 }
 
+.custom-articles-section {
+    background-color: #f2f2f2; /* Grey-ish background color */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.custom-articles-section-title {
+    color: #333; /* Dark text color */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.custom-articles-section-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-articles-section-item {
+    margin-bottom: 15px;
+}
+
+.custom-articles-section-heading {
+    margin-bottom: 5px;
+}
+
+.custom-articles-section-date {
+    color: #666; /* Lighter text color */
+    margin-bottom: 5px;
+}
+
 /* Movies Section */
 .movies-section {
     padding: 20px 0;
@@ -673,7 +704,7 @@ button:hover {
 
 /* Style for submit button */
 .container form button[type="submit"] {
-    background-color: #4169e1; /* Adjust color as needed */
+    background-color: #c7b481; /* Adjust color as needed */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -733,7 +764,7 @@ button:hover {
 
 /* Style for cancel button */
 .delete-account-container .cancel-btn {
-    background-color: #4169e1; /* Adjust color as needed */
+    background-color: #c7b481; /* Adjust color as needed */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -779,7 +810,7 @@ button:hover {
 
 /* Style for submit button */
 .container form input[type="submit"] {
-    background-color: #4169e1; /* Adjust color as needed */
+    background-color: #c7b481; /* Adjust color as needed */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -823,7 +854,7 @@ button:hover {
 
 /* Style for submit button */
 .container form input[type="submit"] {
-    background-color: #4169e1; /* Adjust color as needed */
+    background-color: #c7b481; /* Adjust color as needed */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -873,10 +904,223 @@ button:hover {
 
 /* Style for the submit button */
 .container form input[type="submit"] {
-    background-color: #4169e1; /* Adjust color as needed */
+    background-color: #c7b481; /* Adjust color as needed */
     color: white;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+}
+
+
+/* add article view style */
+.add-article-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.add-article-form {
+    margin-top: 20px;
+}
+
+.add-article-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-article-form input[type="text"],
+.add-article-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.add-article-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-article-form button:hover {
+    background-color: #0056b3;
+}
+
+/* STYLES FOR ARTICLES LIST VIEW ***********************/
+/* Centering the content */
+.custom-center-text {
+    text-align: center;
+}
+
+/* Styling the article list */
+.custom-articles-list {
+    background-color: #f2f2f2; /* Grey-ish background */
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px; /* Adjust according to your preference */
+}
+
+/* Styling individual article items */
+.custom-article-item {
+    margin-bottom: 30px;
+}
+
+/* Styling the article title */
+.custom-article-item h2 {
+    margin-bottom: 10px;
+}
+
+/* Styling the article date */
+.custom-article-date {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Styling the article description */
+.custom-article-description {
+    margin-bottom: 10px;
+}
+
+/* Styling the article excerpt */
+.custom-article-excerpt {
+    margin-top: 10px;
+}
+
+/* Styling the "Add Article" button */
+.add-article-btn {
+    display: inline-block; /* Changed from block to inline-block */
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff; /* Adjust the color as needed */
+    padding: 10px 15px; /* Adjusted padding to make it smaller */
+    border-radius: 5px;
+}
+
+.add-article-btn:hover {
+    background-color: #0056b3; /* Adjust the hover color as needed */
+}
+/* Separator between articles */
+.custom-article-item {
+    border-bottom: 1px solid #ccc; /* Grey line separator */
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* Remove bottom border from last article */
+.custom-article-item:last-child {
+    border-bottom: none;
+}
+
+
+
+
+
+
+
+/* STYLES FOR ARTICLES VIEW *****************/
+/* Container for the article detail */
+.article-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light grey background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Title of the article */
+.article-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Description of the article */
+.article-description-box {
+    padding: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+.article-description {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Poster image of the article */
+.article-poster {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Information about who added the article and when */
+.article-added-by-info {
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+    color: #666; /* Grey color */
+}
+
+/******* EDIT REVIEW *************/
+/* Container for the edit review form */
+.edit-review-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light grey background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Title for the edit review form */
+.edit-review-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Styling for the form fields */
+.edit-review-form {
+    margin-bottom: 20px;
+}
+
+.edit-review-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.edit-review-form input[type="text"],
+.edit-review-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Light grey border */
+}
+
+/* Styling for the submit button */
+.edit-review-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff; /* Blue color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-review-submit-btn:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
 }
