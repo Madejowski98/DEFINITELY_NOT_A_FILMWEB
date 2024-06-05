@@ -6,7 +6,6 @@ class MovieForm(forms.ModelForm):
     class Meta:
         model = Movie
         fields = ["title", "genre", "release_year", "director", "description", "photo"]
-        # photo = forms.ImageField(required=True)
 
 
 class ReviewForm(forms.ModelForm):
@@ -18,7 +17,7 @@ class ReviewForm(forms.ModelForm):
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ["title", "description"]
+        fields = ["title", "description", "photo"]
 
 
 class GenreForm(forms.ModelForm):

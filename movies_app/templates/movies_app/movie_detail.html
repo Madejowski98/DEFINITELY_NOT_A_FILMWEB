@@ -13,6 +13,7 @@
     <p>Directed by {{ movie.director }}</p>
     <p>Genre: {{ movie.genre.name }}</p>
     <p>Release Year: {{ movie.release_year }}</p>
+    <p>User Rating: {{ average_rating|floatformat:1 }}</p>
 </div>
 
 <div class="reviews-section">
