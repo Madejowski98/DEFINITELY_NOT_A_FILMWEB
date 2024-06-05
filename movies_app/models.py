@@ -39,6 +39,13 @@ class Movie(models.Model):
     def __str__(self):
         return self.title
 
+    @property
+    def average_rating(self):
+        reviews = self.review_set.all()
+        if reviews.exists():
+            return reviews.aggregate(models.Avg('rating'))['rating__avg']
+        return 0
+
 
 class Article(models.Model):
     """

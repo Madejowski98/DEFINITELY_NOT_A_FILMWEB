@@ -32,7 +32,8 @@ def movie_list(request):
 def movie_detail(request, movie_id):
     movie = get_object_or_404(Movie, pk=movie_id, approved=True)
     reviews = Review.objects.filter(movie=movie)
-    return render(request, 'movies_app/movie_detail.html', {'movie': movie, 'reviews': reviews})
+    average_rating = movie.average_rating
+    return render(request, 'movies_app/movie_detail.html', {'movie': movie, 'reviews': reviews, 'average_rating': average_rating})
 
 
 # adding movie view
