@@ -3,6 +3,10 @@
 
 {% block title %}Home{% endblock %}
 
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
 {% block body %}
 <div class="hero-section">
     <h1>Welcome to DNAF</h1>
@@ -37,13 +41,13 @@
     </ul>
 </div>
 
-<div class="articles-section">
-    <h2>Latest Articles</h2>
-    <ul>
+<div class="custom-articles-section">
+    <h2 class="custom-articles-section-title">Latest Articles</h2>
+    <ul class="custom-articles-section-list">
         {% for article in latest_articles %}
-            <li>
-                <h3><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h3>
-                <p>{{ article.created_at|date:"F d, Y" }}</p>
+            <li class="custom-articles-section-item">
+                <h3 class="custom-articles-section-heading"><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h3>
+                <p class="custom-articles-section-date">{{ article.created_at|date:"F d, Y" }}</p>
             </li>
         {% endfor %}
     </ul>
