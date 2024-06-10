@@ -1,0 +1,39 @@
+{% extends 'movies_app/base.html' %}
+{% load static %}
+
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block body %}
+<div class="movie-detail-container">
+    {% if movie.photo %}
+        <img src="{{ movie.photo.url }}" alt="{{ movie.title }}" class="movie-poster">
+    {% endif %}
+    <h1>{{ movie.title }}</h1>
+    <p>{{ movie.description }}</p>
+    <p>Directed by {{ movie.director }}</p>
+    <p>Genre: {{ movie.genre.name }}</p>
+    <p>Release Year: {{ movie.release_year }}</p>
+    <p>User Rating: {{ average_rating|floatformat:1 }}</p>
+</div>
+
+<div class="reviews-section">
+    <h2>Reviews</h2>
+    <ul class="review-list">
+        {% for review in reviews %}
+            <li class="review-item">
+                <strong>{{ review.user.username }}</strong>: {{ review.review }} ({{ review.rating }}/10)
+                <div class="button-container">
+                    {% if review.user == request.user %}
+                        <a href="{% url 'edit_review' review.id %}" class="button">Edit</a>
+                        <a href="{% url 'delete_review' review.id %}" class="button">Delete</a>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'add_review' movie.id %}" class="btn">Add Review</a>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}

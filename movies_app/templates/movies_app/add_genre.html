@@ -1,0 +1,12 @@
+{% extends 'movies_app/base.html' %}
+
+{% block title %}Add Genre{% endblock %}
+
+{% block body %}
+    <h1>Add Genre</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

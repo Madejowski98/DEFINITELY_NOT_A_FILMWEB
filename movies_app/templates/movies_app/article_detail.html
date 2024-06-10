@@ -1,0 +1,21 @@
+{% extends 'movies_app/base.html' %}
+{% load static %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+    <div class="article-detail-container">
+        <h1 class="article-title">{{ article.title }}</h1>
+        {% if article.photo %}
+            <img src="{{ article.photo.url }}" alt="{{ article.title }}" class="article-poster">
+        {% endif %}
+        <div class="article-description-box">
+            <p class="article-description">{{ article.description }}</p>
+        </div>
+        <p class="article-added-by-info">Added by: {{ article.added_by.username }} on: {{ article.created_at|date:"F d, Y" }}</p>
+    </div>
+{% endblock %}

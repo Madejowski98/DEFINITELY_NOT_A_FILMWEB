@@ -1,0 +1,16 @@
+{% extends "movies_app/base.html" %}
+{% block title %}My Profile{% endblock %}
+{% block body %}
+<div class="profile-container">
+    <h1>My Profile</h1>
+    <div>Email: {{ user_profile.user.email }}</div>
+    <div>Gender: {{ user_profile.gender }}</div>
+    <div class="profile-actions">
+        <form action="{% url 'delete_account_confirm' %}" method="post" class="delete-account-form">
+            {% csrf_token %}
+            <button type="submit" class="delete-account-btn">Delete Account</button>
+        </form>
+        <a href="{% url 'profile_update' %}" class="edit-profile-link"><button class="edit-profile-btn">Edit Profile</button></a>
+    </div>
+</div>
+{% endblock %}

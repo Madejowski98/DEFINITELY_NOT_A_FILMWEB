@@ -1,0 +1,1126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+header h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+main {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.review {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.review h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.review p {
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+/*CSS FOR HOME*/
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background: #333;
+    color: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.hero-section .cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1e90ff;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.hero-section .cta-button:hover {
+    background-color: #1c86ee;
+}
+
+.custom-articles-section {
+    background-color: #f2f2f2; /* Grey-ish background color */
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.custom-articles-section-title {
+    color: #333; /* Dark text color */
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.custom-articles-section-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-articles-section-item {
+    margin-bottom: 15px;
+}
+
+.custom-articles-section-heading {
+    margin-bottom: 5px;
+}
+
+.custom-articles-section-date {
+    color: #666; /* Lighter text color */
+    margin-bottom: 5px;
+}
+
+/* Movies Section */
+.movies-section {
+    padding: 20px 0;
+}
+
+.movies-section h2 {
+    font-size: 2em;
+    color: #ffa500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.movie-card {
+    background: #444;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    width: 200px;
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.movie-card img {
+    width: 100%;
+    border-bottom: 2px solid #333;
+}
+
+.movie-card h3 {
+    margin: 15px 0 5px;
+    color: #f0f0f0;
+}
+
+.movie-card p {
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.movie-card a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ff6347;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.movie-card a:hover {
+    background-color: #ff4500;
+}
+
+.movie-card:hover {
+    transform: scale(1.05);
+}
+
+/* Reviews Section */
+.reviews-section {
+    padding: 20px 0;
+}
+
+.reviews-section h2 {
+    font-size: 2em;
+    color: #ffa500;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.reviews-section ul {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.reviews-section ul li {
+    background: #333;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    color: #f0f0f0;
+    border: 1px solid #444;
+}
+
+/* images */
+.movie-detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.movie-poster {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.reviews-section {
+    margin-top: 40px; /* Add space before the reviews section */
+    background-color: #f0f0f0; /* Light grey background */
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.review-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.review-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+/* button for reviews on movie details */
+.button-container {
+    text-align: right;
+    margin-top: 10px; /* Adjust this to add some space above the buttons */
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #c7b481;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 4px #999;
+    margin-left: 10px; /* Adds some space between the buttons */
+}
+
+.button:hover {
+    background-color: #c7b481;
+}
+
+.button:active {
+    background-color: #c7b481;
+    box-shadow: 0 2px #333333;
+    transform: translateY(2px);
+}
+
+/* about us page */
+
+body {
+    background-color: #333333FF;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about_us {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+.about_us_paragraph {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.team-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+.team-members {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #c7b481;
+}
+
+.member p {
+    font-size: 1em;
+    color: #000000;
+}
+
+/* CONTACT US PAGE */
+body {
+    background-color: #333333FF;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+a {
+    color: #c7b481;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/*MOVIE LIST STYLES */
+body {
+    background-color: #333333FF;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.movie-list-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+.filter-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.filter-group {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-group label {
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #c7b481;
+    color: #121212;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c7b481;
+}
+
+.movies-section {
+    margin-top: 20px;
+}
+
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.movie-card {
+    background-color: #1f1f1f;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    width: 200px;
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.movie-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.movie-card p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.movie-card .btn {
+    padding: 8px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #c7b481;
+    color: #121212;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.movie-card .btn:hover {
+    background-color: #c7b481;
+}
+
+.add-movie-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #c7b481;
+    color: #121212;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.add-movie-btn:hover {
+    background-color: #c7b481;
+}
+
+/* ADD MOVIE STYLE */
+body {
+    background-color: #333333FF;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.add-movie-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #c7b481;
+}
+
+.add-movie-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.add-movie-form p {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.add-movie-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+}
+
+.add-movie-form input[type="text"],
+.add-movie-form input[type="number"],
+.add-movie-form input[type="file"],
+.add-movie-form select,
+.add-movie-form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #333;
+    color: #e0e0e0;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    background-color: #c7b481;
+    color: #121212;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c7b481;
+}
+
+/* My profile styles */
+/* Style for the profile container */
+.profile-container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the profile title */
+.profile-container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for profile information */
+.profile-container div {
+    margin-bottom: 10px;
+}
+
+/* Style for profile actions */
+.profile-actions {
+    margin-top: 20px;
+}
+
+/* Style for delete account button */
+.delete-account-btn {
+    background-color: #ff6347; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for edit profile button */
+.edit-profile-btn {
+    background-color: #4169e1; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style to display buttons inline */
+.profile-actions .delete-account-form,
+.profile-actions .edit-profile-link {
+    display: inline-block;
+    margin-right: 10px; /* Adjust spacing between buttons */
+}
+
+/* Styles for editing the profile */
+
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+.container form {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Style for form elements */
+.container form input[type="text"],
+.container form input[type="email"],
+.container form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+.container form button[type="submit"] {
+    background-color: #c7b481; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for cancel button */
+.container form a button[type="submit"] {
+    background-color: #ff6347; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+}
+
+/* Add margin between buttons */
+.container form button[type="submit"],
+.container form a button[type="submit"] {
+    margin-right: 10px;
+}
+
+/* account delete styles */
+
+/* Style for the container */
+.delete-account-container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.delete-account-container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the confirmation message */
+.delete-account-container div {
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+.delete-account-container form {
+    display: inline-block;
+}
+
+/* Style for confirm button */
+.delete-account-container .confirm-btn {
+    background-color: #ff6347; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for cancel button */
+.delete-account-container .cancel-btn {
+    background-color: #c7b481; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Style for cancel link */
+.delete-account-container .cancel-link {
+    text-decoration: none; /* Remove underline */
+}
+
+
+
+
+/* Styles for register view */
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+.container form {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Style for form elements */
+.container form input[type="text"],
+.container form input[type="email"],
+.container form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+.container form input[type="submit"] {
+    background-color: #c7b481; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Styles for login view */
+
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the error message */
+.container .error {
+    color: #ff6347; /* Adjust color as needed */
+    margin-bottom: 10px;
+}
+
+/* Style for the form */
+.container form {
+    display: inline-block;
+    text-align: left;
+}
+
+/* Style for form elements */
+.container form input[type="text"],
+.container form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for submit button */
+.container form input[type="submit"] {
+    background-color: #c7b481; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Logged out view styles */
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the title */
+.container h1 {
+    margin-bottom: 20px;
+}
+
+/* Style for the login link */
+.container a {
+    color: #ffffff; /* Adjust color as needed */
+    text-decoration: none;
+}
+
+/* Style for the login link on hover */
+.container a:hover {
+    text-decoration: underline;
+}
+
+/* Logout view styles */
+/* Style for the container */
+.container {
+    text-align: center;
+    margin-top: 50px; /* Adjust as needed */
+}
+
+/* Style for the confirmation message */
+.container div {
+    margin-bottom: 20px;
+}
+
+/* Style for the form */
+.container form {
+    display: inline-block;
+}
+
+/* Style for the submit button */
+.container form input[type="submit"] {
+    background-color: #c7b481; /* Adjust color as needed */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+/* add article view style */
+.add-article-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.add-article-form {
+    margin-top: 20px;
+}
+
+.add-article-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.add-article-form input[type="text"],
+.add-article-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.add-article-form button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-article-form button:hover {
+    background-color: #0056b3;
+}
+
+/* STYLES FOR ARTICLES LIST VIEW ***********************/
+/* Centering the content */
+.custom-center-text {
+    text-align: center;
+}
+
+/* Styling the article list */
+.custom-articles-list {
+    background-color: #f2f2f2; /* Grey-ish background */
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px; /* Adjust according to your preference */
+}
+
+/* Styling individual article items */
+.custom-article-item {
+    margin-bottom: 30px;
+}
+
+/* Styling the article title */
+.custom-article-item h2 {
+    margin-bottom: 10px;
+}
+
+/* Styling the article date */
+.custom-article-date {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+/* Styling the article description */
+.custom-article-description {
+    margin-bottom: 10px;
+}
+
+/* Styling the article excerpt */
+.custom-article-excerpt {
+    margin-top: 10px;
+}
+
+/* Styling the "Add Article" button */
+.add-article-btn {
+    display: inline-block; /* Changed from block to inline-block */
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff; /* Adjust the color as needed */
+    padding: 10px 15px; /* Adjusted padding to make it smaller */
+    border-radius: 5px;
+}
+
+.add-article-btn:hover {
+    background-color: #0056b3; /* Adjust the hover color as needed */
+}
+/* Separator between articles */
+.custom-article-item {
+    border-bottom: 1px solid #ccc; /* Grey line separator */
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+/* Remove bottom border from last article */
+.custom-article-item:last-child {
+    border-bottom: none;
+}
+
+
+
+
+
+
+
+/* STYLES FOR ARTICLES VIEW *****************/
+/* Container for the article detail */
+.article-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light grey background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Title of the article */
+.article-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* Description of the article */
+.article-description-box {
+    padding: 20px;
+    background-color: #fff; /* White background */
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+.article-description {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Poster image of the article */
+.article-poster {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Information about who added the article and when */
+.article-added-by-info {
+    margin-top: 20px;
+    text-align: center;
+    font-style: italic;
+    color: #666; /* Grey color */
+}
+
+/******* EDIT REVIEW *************/
+/* Container for the edit review form */
+.edit-review-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light grey background */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+/* Title for the edit review form */
+.edit-review-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Styling for the form fields */
+.edit-review-form {
+    margin-bottom: 20px;
+}
+
+.edit-review-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.edit-review-form input[type="text"],
+.edit-review-form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Light grey border */
+}
+
+/* Styling for the submit button */
+.edit-review-submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff; /* Blue color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-review-submit-btn:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
