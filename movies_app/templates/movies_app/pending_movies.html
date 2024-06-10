@@ -1,0 +1,34 @@
+{% extends 'movies_app/base.html' %}
+
+{% block title %}Pending Movies{% endblock %}
+
+{% block body %}
+<h1>Pending Movies</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Release Year</th>
+            <th>Description</th>
+            <th>Photo</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for movie in movies %}
+        <tr>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.director }}</td>
+            <td>{{ movie.release_year }}</td>
+            <td>{{ movie.description }}</td>
+            <td>{{ movie.photo }}</td>
+            <td>
+                <a href="{% url 'approve_movie' movie.id %}">Approve</a>
+                <a href="{% url 'reject_movie' movie.id %}">Reject</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

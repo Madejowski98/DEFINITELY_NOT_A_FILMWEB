@@ -1,0 +1,35 @@
+{% extends 'movies_app/base.html' %}
+{% load static %}
+
+{% block title %}Pending Articles{% endblock %}
+
+{% block body %}
+<h1>Pending Articles</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Added by</th>
+            <th>Added on</th>
+            <th>Description</th>
+            <th>Photo</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for article in articles %}
+        <tr>
+            <td><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></td>
+            <td>{{ article.added_by.username }}</td>
+            <td>{{ article.created_at }}</td>
+            <td>{{ article.description|truncatewords:20 }}</td>
+            <td>{{ article.photo }}</td>
+            <td>
+                <a href="{% url 'approve_article' article.id %}"><button type="button">Approve</button></a>
+                <a href="{% url 'reject_article' article.id %}"><button type="button">Reject</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

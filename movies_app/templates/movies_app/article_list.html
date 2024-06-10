@@ -1,0 +1,26 @@
+{% extends 'movies_app/base.html' %}
+{% load static %}
+
+{% block title %}Articles{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+<h1 class="custom-center-text">Latest Articles</h1>
+<div class="custom-articles-list">
+    {% for article in articles %}
+        <div class="custom-article-item">
+            <h2><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h2>
+            <p class="custom-article-date">{{ article.created_at|date:"F d, Y" }}</p>
+            <div class="custom-article-description">{{ article.description }}</div>
+            {% if article.photo %}
+                <img src="{{ article.photo.url }}" alt="{{ article.title }}">
+            {% endif %}
+            <p class="custom-article-excerpt">{{ article.excerpt }}</p>
+        </div>
+    {% endfor %}
+</div>
+<a href="{% url 'add_article' %}" class="add-article-btn">Add Article</a>
+{% endblock %}

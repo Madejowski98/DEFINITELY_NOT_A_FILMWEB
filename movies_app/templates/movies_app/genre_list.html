@@ -1,0 +1,13 @@
+{% extends 'movies_app/base.html' %}
+
+{% block title %}Genre List{% endblock %}
+
+{% block body %}
+    <h1>Genres</h1>
+    <ul>
+        {% for genre in genres %}
+            <li>{{ genre.name }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_genre' %}">Add Genre</a>
+{% endblock %}

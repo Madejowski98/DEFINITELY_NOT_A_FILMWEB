@@ -1,0 +1,46 @@
+{% extends 'movies_app/base.html' %}
+
+{% block title %}Movie list{% endblock %}
+
+{% block body %}
+<div class="movie-list-container">
+    <h1>Movies</h1>
+
+    <form method="get" class="filter-form">
+        <div class="filter-group">
+            <label for="year">Year of Production:</label>
+            <input type="number" id="year" name="year" value="{{ request.GET.year }}">
+        </div>
+        <div class="filter-group">
+            <label for="genre">Genre:</label>
+            <select id="genre" name="genre">
+                <option value="">All</option>
+                {% for genre in genres %}
+                    <option value="{{ genre.id }}" {% if request.GET.genre == genre.id|stringformat:"s" %}selected{% endif %}>
+                        {{ genre.name }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit">Filter</button>
+    </form>
+
+    <div class="movies-section">
+        <div class="movies-grid">
+            {% for movie in movies %}
+                <div class="movie-card">
+                    {% if movie.photo %}
+                        <img src="{{ movie.photo.url }}" alt="{{ movie.title }} poster">
+                    {% endif %}
+                    <h3>{{ movie.title }}</h3>
+                    <p>{{ movie.release_year }}</p>
+                    <a href="{% url 'movie_detail' movie.id %}" class="btn">View Details</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <a href="{% url 'add_movie' %}" class="add-movie-btn">Add Movie</a>
+</div>
+
+{% endblock %}
