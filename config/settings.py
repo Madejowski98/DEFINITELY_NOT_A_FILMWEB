@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-*!gdcyholfe4iuby3*d4s_0122#gcxle&uczp(7-fd)9m3ni@a"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = [".vercel.app", "now.sh", "127.0.0.1:8000", "localhost"]
+ALLOWED_HOSTS = ["kivas9898.pythonanywhere.com/"]
 
 
 # Application definition
@@ -81,9 +81,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": "DNAF",
         "USER": "postgres",
-        "PASSWORD": "UWNTfGARmRxAZUZhCdAQGIXGECUUCmdX",
-        "HOST": "roundhouse.proxy.rlwy.net",
-        "PORT": "23232",
+        "PASSWORD": "admin",
     }
 }
 
