@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["kivas9898.pythonanywhere.com"]
 
-
+# test
 # Application definition
 
 INSTALLED_APPS = [
