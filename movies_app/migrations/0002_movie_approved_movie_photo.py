@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('movies_app', '0001_initial'),
+        ("movies_app", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='movie',
-            name='approved',
+            model_name="movie",
+            name="approved",
             field=models.BooleanField(default=False),
         ),
         migrations.AddField(
-            model_name='movie',
-            name='photo',
-            field=models.ImageField(null=True, upload_to='media'),
+            model_name="movie",
+            name="photo",
+            field=models.ImageField(null=True, upload_to="media"),
         ),
     ]
