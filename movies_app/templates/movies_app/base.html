@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Definitely Not A Filmweb</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'movie_list' %}">Movies</a></li>
+                    <li><a href="{% url 'article_list' %}">Articles</a></li>
+                    {% if user.is_staff %}
+                        <li><a href="{% url 'pending_movies' %}">Pending Movies</a></li>
+                        <li><a href="{% url 'pending_articles' %}">Pending Articles</a></li>
+                    {% endif %}
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'my_user_profile' %}">My Profile</a></li>
+                        <li><a href="{% url 'logout_confirm' %}">Log out</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Log in</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% block body %}
+        {% endblock body %}
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 DNAF. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

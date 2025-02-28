@@ -1,0 +1,55 @@
+{% extends 'movies_app/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="hero-section">
+    <h1>Welcome to DNAF</h1>
+    <p>Discover, rate, and review your favorite movies</p>
+</div>
+
+<div class="movies-section">
+    <h2>Latest Movies</h2>
+    <div class="movies-grid">
+        {% for movie in latest_movies %}
+            <div class="movie-card">
+            {% if movie.photo %}
+                <img src="{{ movie.photo.url }}" alt="{{ movie.title }} poster">
+            {% endif %}
+                <h3>{{ movie.title }}</h3>
+                <p>{{ movie.release_year }}</p>
+                <a href="{% url 'movie_detail' movie.id %}" class="btn">View Details</a>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="reviews-section">
+    <h2>Recent Reviews</h2>
+    <ul>
+        {% for review in recent_reviews %}
+            <li>
+                <strong>{{ review.user.username }}</strong> reviewed <em>{{ review.movie.title }}</em>:
+                "{{ review.review }}" ({{ review.rating }}/10)
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="custom-articles-section">
+    <h2 class="custom-articles-section-title">Latest Articles</h2>
+    <ul class="custom-articles-section-list">
+        {% for article in latest_articles %}
+            <li class="custom-articles-section-item">
+                <h3 class="custom-articles-section-heading"><a href="{% url 'article_detail' article.id %}">{{ article.title }}</a></h3>
+                <p class="custom-articles-section-date">{{ article.created_at|date:"F d, Y" }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

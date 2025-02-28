@@ -1,0 +1,25 @@
+{% extends "movies_app/base.html" %}
+{% block title %}Login{% endblock %}
+{% block body %}
+<div class="container">
+    <h1>Sign in</h1>
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <div>
+            <input type="submit" value="Log in">
+        </div>
+    </form>
+</div>
+{% endblock %}

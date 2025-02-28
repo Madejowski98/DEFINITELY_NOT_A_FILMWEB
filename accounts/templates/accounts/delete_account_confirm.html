@@ -1,0 +1,13 @@
+{% extends "movies_app/base.html" %}
+{% block title %}Delete Account{% endblock %}
+{% block body %}
+<div class="delete-account-container">
+    <h1>Confirm Account Deletion</h1>
+    <div>Are you sure you want to delete your account? This action cannot be undone.</div>
+    <form action="{% url 'delete_account' %}" method="post" class="delete-account-form">
+        {% csrf_token %}
+        <button type="submit" class="confirm-btn">Confirm</button>
+        <a href="{% url 'my_user_profile' %}" class="cancel-link"><button type="button" class="cancel-btn">Cancel</button></a>
+    </form>
+</div>
+{% endblock %}

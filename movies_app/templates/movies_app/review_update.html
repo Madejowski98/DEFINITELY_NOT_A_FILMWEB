@@ -1,0 +1,19 @@
+{% extends 'movies_app/base.html' %}
+{% load static %}
+
+{% block title %}Edit Review{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="edit-review-container">
+    <h1 class="edit-review-title">Edit Your Review</h1>
+    <form class="edit-review-form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="edit-review-submit-btn" type="submit">Update Review</button>
+    </form>
+</div>
+{% endblock %}
